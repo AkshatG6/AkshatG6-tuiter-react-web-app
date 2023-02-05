@@ -1,0 +1,145 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial;
+    margin: 10px;
+}
+
+.wd-search{
+    /*clear: both;*/
+    display: flex;
+    height: 40px;
+    margin: 10px;
+}
+
+.wd-search-bar{
+    position: relative;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.wd-search-bar > input::placeholder {
+    color: lightgray;
+}
+
+.wd-search-bar > input {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    padding-left: 50px;
+    margin-right: 12px;
+    border: 0;
+    font-size: 18px;
+    color: white;
+}
+
+.wd-settings {
+    height: 40px;
+    width: 40px;
+    margin: 0 40px;
+    justify-content: flex-end;
+}
+
+.wd-nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 8px;
+    font-weight: bold;
+    color: rgb(110, 118, 125);
+}
+
+.wd-nav-tab{
+    margin: 0;
+    padding: 0;
+    height: 30px;
+}
+.wd-selected-tab{
+    color: rgb(29, 161, 242);
+    border-bottom: 4px solid rgb(29, 161, 242);
+}
+
+.wd-trending-category{
+    color: rgb(110, 118, 125);
+    font-size: 0.8em;
+    padding: 2px;
+
+}
+
+.wd-tweet-count{
+    color: lightgray;
+    font-size: 0.8em;
+    padding: 2px;
+    color: rgb(110, 118, 125);
+}
+
+.wd-margin{
+    margin: 1%;
+}
+.wd-trending{
+    /*color: rgb(110, 118, 125);*/
+    border: 1px solid #303335;
+}
+
+.wd-trending-title{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wd-trending-first{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wd-trending-more {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 10px;
+}
+
+.wd-post {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #303335;
+}
+
+.wd-post-author {
+    display: flex;
+    font-size: 13px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.wd-post-timeline {
+    color: rgb(110, 118, 125);
+}
+
+.wd-post-topic {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wd-post-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+}
+
+.wd-post-icon {
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 3px;
+}
+
+.wd-post-verified {
+    height: 10px;
+    width: 10px;
+    margin: 0 3px;
+}
