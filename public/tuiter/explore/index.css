@@ -1,18 +1,18 @@
-body {
+/* body {
     background-color: black;
     color: white;
     font-family: Arial;
     margin: 10px;
 }
 
-.wd-search{
+.wd-search{ */
     /*clear: both;*/
-    display: flex;
+    /* display: flex;
     height: 40px;
     margin: 10px;
-}
+} */
 
-.wd-search-bar{
+/* .wd-search-bar{
     position: relative;
     width: 90%;
     height: 100%;
@@ -78,9 +78,9 @@ body {
 .wd-margin{
     margin: 1%;
 }
-.wd-trending{
+.wd-trending{ */
     /*color: rgb(110, 118, 125);*/
-    border: 1px solid #303335;
+    /* border: 1px solid #303335;
 }
 
 .wd-trending-title{
@@ -142,4 +142,97 @@ body {
     height: 10px;
     width: 10px;
     margin: 0 3px;
+} */
+
+
+
+body {
+    font-family: Arial;
+    margin: 10px;
 }
+
+.wd-post-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+}
+
+.wd-input {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    padding-left: 50px;
+    margin-right: 12px;
+    border: 0;
+    font-size: 18px;
+    background-color: lightgray;
+}
+
+.btn-primary {
+    background-color: black;
+    color: white;
+}
+
+#tweet-button {
+    background-color: #00ACEE;
+}
+
+.active-list-item {
+    /* background-color: white; */
+    color:black;
+}
+
+.wd-nav-bar{
+    font-weight: bold;
+    color: rgb(110, 118, 125);
+}
+
+.wd-nav-tab{
+    /* height: 30px; */
+    padding: 0%;
+    border: 0;
+}
+.wd-selected-tab{
+    color: rgb(29, 161, 242);
+    border-bottom: 4px solid rgb(29, 161, 242);
+}
+
+.wd-gray {
+    color: rgb(110, 118, 125);
+}
+
+.wd-search{
+    color: rgb(110, 118, 125);
+}
+
+.wd-search > input::placeholder {
+    margin-left: 20px;
+    color: lightgray;
+}
+
+.wd-blue{
+    color: #00ACEE;
+}
+
+.wd-follow-button{
+    background-color: black;
+    color: white;
+}
+
+
+.wd-show{
+    color: #00ACEE;
+}
+
+.wd-promote{
+    padding-left: 0.5rem;
+    color: rgb(110, 118, 125);
+    
+}
+
+.wd-rigwtCol{
+    background-color: rgb(110, 118, 125) ;
+}
+/* .wd-tweetButton{
+    color: #00ACEE;
+} */
