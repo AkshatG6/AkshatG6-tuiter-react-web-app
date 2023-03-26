@@ -31,6 +31,7 @@ const TuitStats = ({post}) => {
   }
 
   const toggleTodoDone = (todo) => {  // handle checkbox click event, accept todo index
+    console.log(todo.liked)
     dispatch(todoDoneToggle(todo)) // send index to reducer function passing index of todo to toggle done field
     
 }
@@ -50,7 +51,8 @@ const TuitStats = ({post}) => {
             <div className="col-3 nav-link border-0 rounded-0 text-dark">
               <button className="border-0 fg-color-white"  style={{backgroundColor: 'white'}} onClick={() => 
                 toggleTodoDone(post)} >
-                  <FontAwesomeIcon className="me-2" icon={faHeart} color={post.color} />
+                  {post.liked ? <FontAwesomeIcon className="me-2" icon={fasHeart} color="red"/> :  <FontAwesomeIcon className="me-2" icon={faHeart}/>}
+                  {/* <FontAwesomeIcon className="me-2" icon={faHeart} color={post.color} /> */}
                   {post.likes}
                 </button>
             </div>

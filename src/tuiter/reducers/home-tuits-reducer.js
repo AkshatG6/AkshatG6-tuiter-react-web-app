@@ -50,7 +50,8 @@ const homeTuitsSlice = createSlice({
       todoDoneToggle(state, action) {
         const todo = state.find((todo) =>
               todo._id === action.payload._id)  // Finding the ToDo from the action payload.
-        todo.done = !todo.done  // Whatever is the current value of ToDo, change it to !ToDo i.e. reverse the value.
+        todo.done = !todo.done;  // Whatever is the current value of ToDo, change it to !ToDo i.e. reverse the value.
+        todo.liked = !todo.liked;
         todo.likes = (todo.done) ? todo.likes + 1 : todo.likes - 1;
         todo.color = (todo.done) ? 'pink' : '';
         todo.icon = (todo.done) ? 'fasHeart' : 'farHeart';
