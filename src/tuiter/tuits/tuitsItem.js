@@ -42,9 +42,9 @@ const TuitItem = ({post}) => {
               </div>
     
                     <li className="list-group-item border-0">
-                          <i  onClick={() => 
-                              deleteTuitHandler(`${post._id}`)}      // new Delete button sends index of todo to delete to handler. Note () => {} because we are passing index parameter otherwise gets into infinite loop
-                              className="bi bi-x-lg float-end">
+                          <i className="bi bi-x-lg float-end" onClick={() => 
+                              deleteTuitHandler(post)}      // new Delete button sends index of todo to delete to handler. Note () => {} because we are passing index parameter otherwise gets into infinite loop
+                              >
                           </i>
                     </li>
                   {/* ) */}

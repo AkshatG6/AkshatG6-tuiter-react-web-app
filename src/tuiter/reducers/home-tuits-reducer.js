@@ -27,9 +27,12 @@ const homeTuitsSlice = createSlice({
         
 
     deleteTodo(state, action) { // new deleteTodo function extracts
+      console.log(state )
+      
         const index = state
-        .findIndex(tuit =>
-           tuit._id === action.payload);    // index from action's payload and uses it to splice out the todo to be deleted
+        .findIndex(post =>
+           post._id === action.payload._id); 
+           console.log(index)   // index from action's payload and uses it to splice out the todo to be deleted
         state.splice(index, 1)  
         // console.log(index._id)
     },
