@@ -77,10 +77,13 @@ const EditProfile = () => {
                 src="/images/reactIcon.png"
                 alt=""
             />
-            <i className="bi bi-camera-fill position-absolute top-50 start-0 translate-middle-y"></i>
+            <div
+              className="position-relative top-10 right-50 ps-5 translate-middle-y translate-middle-x">
+            <div className="me-5">
+              <i className="bi bi-camera fs-4 translate-middle-x"></i>
+            </div>
+          </div>
         </div>
-
-        
 
 
         <div className="mt-5 ps-3 pe-3">
