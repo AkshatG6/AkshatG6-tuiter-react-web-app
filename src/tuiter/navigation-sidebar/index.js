@@ -10,7 +10,7 @@ const NavigationSidebar = () => {
         <div className="list-group">
             <a className="list-group-item">Tuiter</a>
      
-            <Link to="/tuiter/home" className={`list-group-item ${active === 'home'?'active':''}`} >
+            <Link to="/tuiter/" className={`list-group-item ${active === ''?'active':''}`} >
                 Home
             </Link>
      {/* <NavLink to={"/explore"}> */}
@@ -21,6 +21,7 @@ const NavigationSidebar = () => {
             <Link to="/" className={`list-group-item`}>
                 Labs
             </Link>
+            
      
      <a className={`list-group-item
                     ${active === 'notifications'?'active':''}`}>
@@ -38,10 +39,13 @@ const NavigationSidebar = () => {
                     ${active === 'lists'?'active':''}`}>
        Lists
      </a>
-     <a className={`list-group-item
+     {/* <a className={`list-group-item
                     ${active === 'profile'?'active':''}`}>
        Profile
-     </a>
+     </a> */}
+     <Link to="/tuiter/profile" className={`list-group-item ${active === 'profile'?'active':''}`}>
+                Profile
+            </Link>
      <a className={`list-group-item
                     ${active === 'more'?'active':''}`}>
        More
