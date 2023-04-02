@@ -6,7 +6,8 @@ import TuitStats from "./tuitStats";
 
 // Reducer 
 
-import {deleteTodo} from "../reducers/home-tuits-reducer";
+// import {deleteTodo} from "../reducers/home-tuits-reducer";
+import { deleteTuitThunk } from "../../services/tuits-thunks";
 import { useDispatch, useSelector } from "react-redux";
 
 const TuitItem = ({post}) => {
@@ -15,7 +16,8 @@ const TuitItem = ({post}) => {
   const dispath = useDispatch();
 
   const deleteTuitHandler = (index) => {
-    dispath(deleteTodo(index))
+    console.log("click", index);
+    dispath(deleteTuitThunk(index))
   }
 
  return(

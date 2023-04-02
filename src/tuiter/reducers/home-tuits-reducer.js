@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {  updateTuitThunk ,createTuitThunk, deleteTuitThunk, findTuitsThunk } from "../../services/tuits-thunks";
 import tuits from '../data/tuits.json';
+
+
+const initialState = {
+   tuits: [],
+   loading: false
+}
 
 
 const currentUser = {       // create an object that represents the currently
@@ -20,54 +27,96 @@ const templateTuit = {      // create a template tuit object with some default
 
 const homeTuitsSlice = createSlice({
  name: 'tuits',
- initialState: tuits,
-
- reducers: { // define reducer functions as a map, reducer is key
-        
-        
-
-    deleteTodo(state, action) { // new deleteTodo function extracts
-      console.log(state )
-      
-        const index = state
-        .findIndex(post =>
-           post._id === action.payload._id); 
-           console.log(index)   // index from action's payload and uses it to splice out the todo to be deleted
-        state.splice(index, 1)  
-        // console.log(index._id)
+ initialState,
+ extraReducers: {
+   [findTuitsThunk.pending]:
+      (state) => {
+         state.loading = true
+         state.tuits = []
+   },
+   [findTuitsThunk.fulfilled]:
+      (state, { payload }) => {
+         state.loading = false
+         state.tuits = payload
+   },
+   [findTuitsThunk.rejected]:
+      (state, action) => {
+         state.loading = false
+         state.error = action.error
+   }, 
+   [deleteTuitThunk.fulfilled] :
+   (state, { payload }) => {
+    console.log(payload,"HEE")
+   state.loading = false
+   state.tuits = state.tuits
+     .filter(post => post._id !== payload._id)
+ },
+ [createTuitThunk.fulfilled]:
+      (state, { payload }) => {
+        state.loading = false
+        state.tuits.push(payload)
     },
 
-    likeTuitToggle(state, action) {
-      
-        const post = state.find((post) =>
-              post._id === action.payload._id)  // Finding the ToDo from the action payload.
-        // todo.done = !todo.done  // Whatever is the current value of ToDo, change it to !ToDo i.e. reverse the value.
-        console.log(post._id)
-        post.liked = !post.liked;
-        post.likes = (post.liked) ? post.likes + 1 : post.likes - 1;
-        post.color = (post.liked) ? 'pink' : 'white';
-      },
-      todoDoneToggle(state, action) {
-        const todo = state.find((todo) =>
-              todo._id === action.payload._id)  // Finding the ToDo from the action payload.
-        todo.done = !todo.done;  // Whatever is the current value of ToDo, change it to !ToDo i.e. reverse the value.
-        todo.liked = !todo.liked;
-        todo.likes = (todo.done) ? todo.likes + 1 : todo.likes - 1;
-        todo.color = (todo.done) ? 'pink' : '';
-        todo.icon = (todo.done) ? 'fasHeart' : 'farHeart';
-        todo.prefix = (todo.done) ? 'fas' : 'far';
-
-      }, 
-
-      createTuit(state, action) {     // the new tuit in the payload at the beginning of the
-        state.unshift({       // array of tuits contained in the state. Also copy
-          ...action.payload,      // all fields from templateTuit and initialize
-          ...templateTuit,        // the unique identifier with a timestamp
-          _id: (new Date()).getTime(),
-        })
-      }
-     
+    [updateTuitThunk.fulfilled]:
+  (state, { payload }) => {
+    state.loading = false
+    const tuitNdx = state.tuits
+      .findIndex((t) => t._id === payload._id)
+    state.tuits[tuitNdx] = {
+      ...state.tuits[tuitNdx],
+      ...payload
+    }
   }
+
+ },
+
+
+//  reducers: { // define reducer functions as a map, reducer is key
+        
+        
+
+//     deleteTodo(state, action) { // new deleteTodo function extracts
+//       console.log(state )
+      
+//         const index = state
+//         .findIndex(post =>
+//            post._id === action.payload._id); 
+//            console.log(index)   // index from action's payload and uses it to splice out the todo to be deleted
+//         state.splice(index, 1)  
+//         // console.log(index._id)
+//     },
+
+//     likeTuitToggle(state, action) {
+      
+//         const post = state.find((post) =>
+//               post._id === action.payload._id)  // Finding the ToDo from the action payload.
+//         // todo.done = !todo.done  // Whatever is the current value of ToDo, change it to !ToDo i.e. reverse the value.
+//         console.log(post._id)
+//         post.liked = !post.liked;
+//         post.likes = (post.liked) ? post.likes + 1 : post.likes - 1;
+//         post.color = (post.liked) ? 'pink' : 'white';
+//       },
+//       todoDoneToggle(state, action) {
+//         const todo = state.find((todo) =>
+//               todo._id === action.payload._id)  // Finding the ToDo from the action payload.
+//         todo.done = !todo.done;  // Whatever is the current value of ToDo, change it to !ToDo i.e. reverse the value.
+//         todo.liked = !todo.liked;
+//         todo.likes = (todo.done) ? todo.likes + 1 : todo.likes - 1;
+//         todo.color = (todo.done) ? 'pink' : '';
+//         todo.icon = (todo.done) ? 'fasHeart' : 'farHeart';
+//         todo.prefix = (todo.done) ? 'fas' : 'far';
+
+//       }, 
+
+//       createTuit(state, action) {     // the new tuit in the payload at the beginning of the
+//         state.unshift({       // array of tuits contained in the state. Also copy
+//           ...action.payload,      // all fields from templateTuit and initialize
+//           ...templateTuit,        // the unique identifier with a timestamp
+//           _id: (new Date()).getTime(),
+//         })
+//       }
+     
+  // }
 });
 
 
