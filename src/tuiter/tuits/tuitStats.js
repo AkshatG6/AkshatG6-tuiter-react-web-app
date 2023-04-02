@@ -62,7 +62,7 @@ const TuitStats = ({post}) => {
               {post.dislikes}
               <i onClick={() => dispatch(updateTuitThunk({
                 ...post,
-                dislikes: post.dislikes - 1
+                dislikes: post.dislikes + 1
               }))} >  <FontAwesomeIcon className="me-2 text-danger" icon={faThumbsDown} />  </i>
             </div>
             </div>
