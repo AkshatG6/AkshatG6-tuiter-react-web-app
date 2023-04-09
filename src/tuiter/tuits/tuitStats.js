@@ -37,7 +37,7 @@ const TuitStats = ({post}) => {
 }
 
   
-
+console.log("HOU", post)
     return (
         <div className="row mt-3 text-dark nav nav-tabs border-0 ">
             <div className="col-2 mt-0 nav-link border-0 rounded-0 text-dark" >

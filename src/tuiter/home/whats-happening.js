@@ -12,7 +12,10 @@ const WhatsHappening = () => {
     const newTuit = {
         tuit: whatsHappening
       }
+      console.log("BEFORE", newTuit)
+      
       dispatch(createTuitThunk(newTuit));
+      console.log("AFTER", newTuit)
    
  }
  return (

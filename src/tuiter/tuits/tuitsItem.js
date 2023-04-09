@@ -31,7 +31,7 @@ const TuitItem = ({post}) => {
             <div className="d-flex justify-content-between align-items-center">
               <div className="d-flex align-items-center">
                 <div style={{ fontWeight: 'bold' }}>
-                  {post.userName}
+                  {post.username}
                 </div>
                 <FontAwesomeIcon className="ms-2" icon={faCheckCircle} color="#00ACEE" />
                 <div className="text-dark ms-2">{post.handle}</div>

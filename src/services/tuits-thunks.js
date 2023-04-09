@@ -3,6 +3,20 @@ import {createAsyncThunk}
 import * as service
   from "./tuits-service"
 
+  const currentUser = {
+    "username": "Spacex",
+    "handle": "@spacex",
+    "image": "spacex.jpeg", 
+  };
+  
+  const templateTuit = {
+    ...currentUser,
+    "topic": "Space",
+    "time": "2h",
+    "dislikes": 0,
+
+  }
+
 export const findTuitsThunk = createAsyncThunk(
   'tuits/findTuits', async () =>
     await service.findTuits()
@@ -11,13 +25,15 @@ export const findTuitsThunk = createAsyncThunk(
 export const deleteTuitThunk = createAsyncThunk(
     'tuits/deleteTuit',
     async (tuitId) => {
-      await service.deleteTuit(tuitId)
+      console.log(tuitId['_id'])
+      await service.deleteTuit(tuitId['_id'])
       return tuitId
   })
   
   export const createTuitThunk = createAsyncThunk(
     'tuits/createTuit',
     async (tuit) => {
+      console.log(tuit)
       const newTuit = await service.createTuit(tuit)
       return newTuit
   })
