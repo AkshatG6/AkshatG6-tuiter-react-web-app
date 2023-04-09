@@ -13,8 +13,6 @@ import * as service
     ...currentUser,
     "topic": "Space",
     "time": "2h",
-    "dislikes": 0,
-
   }
 
 export const findTuitsThunk = createAsyncThunk(
